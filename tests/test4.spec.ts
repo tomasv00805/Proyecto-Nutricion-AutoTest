@@ -26,7 +26,7 @@ test('test4', async ({ page }) => {
   await page.locator('input[name="forma"]').fill(getRandomValue().toString());
   await page.locator('input[name="color"]').fill(getRandomValue().toString());
   await page.locator('input[name="tamaño"]').fill(getRandomValue().toString());
-    await page.getByRole('button', { name: 'Enviar' }).click();
+  await page.getByRole('button', { name: 'Enviar' }).click();
   
     // ---------------------
     
