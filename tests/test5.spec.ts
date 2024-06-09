@@ -23,15 +23,17 @@ test('test5', async ({ page }) => {
   // Espera a que la nueva página se cargue completamente
   await page.waitForLoadState('load');
 
-  // Realiza las acciones en la nueva página
+  const getRandomValue = () => Math.floor(Math.random() * 100) + 1;
+
+  // Asigna valores aleatorios a los sliders
   await page.getByLabel('No me gusta', { exact: true }).check();
-  await page.locator('div').filter({ hasText: /^SaborMe desagradaMe agrada$/ }).getByRole('slider').fill('37');
-  await page.locator('input[name="aroma"]').fill('63');
-  await page.locator('input[name="textura"]').fill('41');
-  await page.locator('input[name="crocante"]').fill('27');
-  await page.locator('input[name="forma"]').fill('84');
-  await page.locator('input[name="color"]').fill('15');
-  await page.locator('input[name="tamaño"]').fill('71');
+  await page.locator('div').filter({ hasText: /^SaborMe desagradaMe agrada$/ }).getByRole('slider').fill(getRandomValue().toString());
+  await page.locator('input[name="aroma"]').fill(getRandomValue().toString());
+  await page.locator('input[name="textura"]').fill(getRandomValue().toString());
+  await page.locator('input[name="crocante"]').fill(getRandomValue().toString());
+  await page.locator('input[name="forma"]').fill(getRandomValue().toString());
+  await page.locator('input[name="color"]').fill(getRandomValue().toString());
+  await page.locator('input[name="tamaño"]').fill(getRandomValue().toString());
   await page.getByRole('button', { name: 'Enviar' }).click();
 
   // Espera a que la ventana emergente esté visible y contenga el texto "Gracias!"

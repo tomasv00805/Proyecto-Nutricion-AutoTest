@@ -14,33 +14,31 @@ test('test4', async ({ page }) => {
   // Espera a que la nueva página se cargue
   await page.waitForLoadState('load');
 
-  const { chromium } = require('playwright');
+  
+  const getRandomValue = () => Math.floor(Math.random() * 100) + 1;
 
-  (async () => {
-    const browser = await chromium.launch({
-      headless: false
-    });
-    const context = await browser.newContext();
-    await page.getByLabel('No me gusta', { exact: true }).check();
-    await page.locator('div').filter({ hasText: /^SaborMe desagradaMe agrada$/ }).getByRole('slider').fill('37');
-    await page.locator('input[name="aroma"]').fill('63');
-    await page.locator('input[name="textura"]').fill('41');
-    await page.locator('input[name="crocante"]').fill('27');
-    await page.locator('input[name="forma"]').fill('84');
-    await page.locator('input[name="color"]').fill('15');
-    await page.locator('input[name="tamaño"]').fill('71');
+  // Asigna valores aleatorios a los sliders
+  await page.getByLabel('No me gusta', { exact: true }).check();
+  await page.locator('div').filter({ hasText: /^SaborMe desagradaMe agrada$/ }).getByRole('slider').fill(getRandomValue().toString());
+  await page.locator('input[name="aroma"]').fill(getRandomValue().toString());
+  await page.locator('input[name="textura"]').fill(getRandomValue().toString());
+  await page.locator('input[name="crocante"]').fill(getRandomValue().toString());
+  await page.locator('input[name="forma"]').fill(getRandomValue().toString());
+  await page.locator('input[name="color"]').fill(getRandomValue().toString());
+  await page.locator('input[name="tamaño"]').fill(getRandomValue().toString());
     await page.getByRole('button', { name: 'Enviar' }).click();
   
     // ---------------------
     
-  })();
+
   // Ajusta el selector del botón que envía el formulario
 
-  await page.waitForTimeout(2500);
+
   // Espera a que la ventana emergente esté visible
   await page.waitForSelector('.modal-dialog', { state: 'visible' });
 
   // Verifica que el título de la ventana emergente sea "Gracias!"s
+  await page.waitForTimeout(5000);
   const modalTitle = await page.textContent('.modal-title');
   expect(modalTitle).toBe('Gracias!');
 
