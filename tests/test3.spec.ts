@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test3', async ({ page }) => {
+test('Test3', async ({ page }) => {
     
   // Navigate to the page with the button
   await page.goto('https://proyecto-nutricion-frontend-5o3s.vercel.app/');
