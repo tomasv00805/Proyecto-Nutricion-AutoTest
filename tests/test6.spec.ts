@@ -4,7 +4,7 @@ import { test, expect } from '@playwright/test';
 test('Test6', async ({ page }) => {
   
     // Navegar a la página del test
-    await page.goto('https://proyecto-nutricion-frontend-5o3s.vercel.app/');
+    await page.goto('https://proyecto-nutricion-frontend-5o3s.vercel.app/responses');
   
 
   // Esperar a que se cargue el gráfico y la imagen del gráfico

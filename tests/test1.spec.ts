@@ -4,7 +4,7 @@ import { test, expect } from '@playwright/test';
 test('Test incremento index', async ({ page }) => {
  
   // Abrir la página
-  await page.goto('https://proyecto-nutricion-frontend-5o3s.vercel.app/');
+  await page.goto('https://proyecto-nutricion-frontend-5o3s.vercel.app/responses');
   
   
   await page.waitForTimeout(800); 

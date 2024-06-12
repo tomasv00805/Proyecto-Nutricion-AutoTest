@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('Test5', async ({ page }) => {
   // Navega a la página con el botón
-  await page.goto('https://proyecto-nutricion-frontend-5o3s.vercel.app/');
+  await page.goto('https://proyecto-nutricion-frontend-5o3s.vercel.app/responses');
   
   // Espera a que el span con el número inicial esté visible
   await page.waitForSelector('#cant-respuestas');
@@ -61,7 +61,7 @@ test('Test5', async ({ page }) => {
   expect(modalFooterButton).toBe('Más Sobre Nosotros!');
   
   // Recarga la página
-  await page.goto('https://proyecto-nutricion-frontend-5o3s.vercel.app/');
+  await page.goto('https://proyecto-nutricion-frontend-5o3s.vercel.app/responses');
   await page.waitForSelector('#cant-respuestas');
   await page.waitForTimeout(5000);
   // Vuelve a obtener el valor del número dentro del span después de recargar
