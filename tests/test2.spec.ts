@@ -3,8 +3,7 @@ import { test, expect, chromium } from '@playwright/test';
 test('Test2', async ({ page }) => {
   // Navega a la página con el botón
   await page.goto('https://proyecto-nutricion-frontend-5o3s.vercel.app/');
-
-
+  
   // Espera a que el botón esté visible y haz clic en él
   await page.waitForSelector('#create-response-button', { timeout: 6000 });
   await page.click('#create-response-button');

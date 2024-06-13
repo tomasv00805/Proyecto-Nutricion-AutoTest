@@ -8,6 +8,7 @@ test('Test5', async ({ page }) => {
   await page.waitForSelector('#cant-respuestas');
   
   await page.waitForTimeout(5000);
+  
   // Obtén el valor del número dentro del span
   const valorInicial = await page.textContent('#cant-respuestas');
   if (valorInicial === null) {
